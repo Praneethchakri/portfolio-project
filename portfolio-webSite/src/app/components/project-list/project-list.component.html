@@ -1,0 +1,12 @@
+<div *ngIf="isLoading">Loading projects...</div>
+<div *ngIf="!isLoading && projects.length === 0">No projects available.</div>
+
+<ul *ngIf="!isLoading && projects.length > 0">
+  <li *ngFor="let project of projects">
+    <h3>{{ project.name }}</h3>
+    <p>{{ project.description }}</p>
+    <p><strong>Status:</strong> {{ project.status }}</p>
+    <p><strong>Start Date:</strong> {{ project.startDate || 'N.A.' }}</p>
+    <p *ngIf="project.endDate"><strong>End Date:</strong> {{ project.endDate || 'N.A.' }}</p>
+  </li>
+</ul>
